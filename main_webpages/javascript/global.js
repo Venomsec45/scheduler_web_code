@@ -34,8 +34,8 @@
     header.innerHTML =
       '<div class="container">' +
         '<div class="nav__bar">' +
-          '<a class="nav__logo" href="index.html" aria-label="Scheduler home">' +
-            '<img src="assets/logo.png" alt="Scheduler" width="847" height="317">' +
+          '<a class="nav__logo" href="/main_webpages/html_pages/index.html" aria-label="Scheduler home">' +
+            '<img src="main_webpages/images/logo.png" alt="Scheduler" width="847" height="317">' +
           "</a>" +
           '<div class="nav__menu" id="nav-menu">' +
             '<div class="nav__menu-inner">' +
