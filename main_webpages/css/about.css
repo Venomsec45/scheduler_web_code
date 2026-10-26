@@ -1,0 +1,117 @@
+/* =========================================================
+   About us page styles
+   ========================================================= */
+
+.history { background: var(--paper); }
+
+/* ---------- Timeline ---------- */
+.timeline { position: relative; padding-block: 1rem; }
+
+/* Dashed center line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 0;
+  border-left: 4px dashed var(--ink);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+/* Solid yellow line that grows while the visitor scrolls through history */
+.timeline__progress {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 16px;
+  height: var(--progress, 0%);
+  z-index: 0;
+  background: var(--yellow);
+  border: 2px solid var(--ink);
+  border-radius: var(--pill);
+  transform: translateX(-50%);
+  transition: height .15s linear;
+}
+
+.timeline__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.5rem; }
+
+.tl-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5rem;
+}
+.tl-item__num {
+  position: absolute;
+  top: 1.25rem;
+  left: 50%;
+  z-index: 2;
+  width: 62px; height: 62px;
+  display: grid; place-items: center;
+  background: var(--blue);
+  color: var(--paper);
+  border: var(--border-thick);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  font-weight: 900;
+  font-size: 1.2rem;
+  transform: translateX(-50%) scale(.6);
+  opacity: 0;
+  transition: transform .6s var(--ease), opacity .6s var(--ease), background-color .3s;
+}
+.tl-item.is-visible .tl-item__num { transform: translateX(-50%) scale(1); opacity: 1; }
+
+.tl-card {
+  position: relative;
+  padding: 1.5rem 1.75rem;
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transition: transform .8s var(--ease), opacity .8s var(--ease);
+}
+.tl-card p { margin: 0; }
+.tl-card__year {
+  display: inline-block;
+  margin-bottom: .75rem;
+  padding: .2rem .8rem;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--pill);
+  font-weight: 800;
+}
+
+/* Left items start on the left and slide right; right items start on the right and slide left */
+.tl-item--left .tl-card { grid-column: 1; transform: translateX(-120px); }
+.tl-item--right .tl-card { grid-column: 2; transform: translateX(120px); }
+.tl-item.is-visible .tl-card { opacity: 1; transform: translateX(0); }
+
+.tl-item:nth-child(6n+1) .tl-card { background: var(--yellow); }
+.tl-item:nth-child(6n+2) .tl-card { background: var(--orange); }
+.tl-item:nth-child(6n+3) .tl-card { background: var(--sky); }
+.tl-item:nth-child(6n+4) .tl-card { background: var(--gold); }
+.tl-item:nth-child(6n+5) .tl-card { background: var(--mint); }
+.tl-item:nth-child(6n+6) .tl-card { background: var(--red); }
+
+@media (max-width: 760px) {
+  .timeline::before, .timeline__progress { left: 31px; }
+  .tl-item { grid-template-columns: 1fr; padding-left: 80px; }
+  .tl-item__num { left: 31px; top: 1rem; width: 52px; height: 52px; font-size: 1rem; }
+  .tl-item--left .tl-card,
+  .tl-item--right .tl-card { grid-column: 1; }
+}
+
+/* ---------- Mission & vision ---------- */
+.mv { background: var(--blue); border-top: var(--border-thick); }
+.mv__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.mv-card {
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+.mv-card p { font-size: var(--step-1); line-height: 1.55; margin: 0; }
+.mv-card--mission { background: var(--yellow); }
+.mv-card--vision { background: var(--paper); }
+@media (max-width: 760px) { .mv__grid { grid-template-columns: 1fr; } }
+.history { overflow-x: clip; }

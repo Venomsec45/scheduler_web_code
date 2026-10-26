@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Log in | Scheduler</title>
+  <link rel="icon" href="/main_webpages/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/main_webpages/css/global.css">
+  <link rel="stylesheet" href="/main_webpages/css/login.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="auth">
+    <div class="container auth__grid">
+      <section class="auth__intro">
+        <h1>Welcome back.</h1>
+        <p>Log in to see your week, your busiest days and any plans that need moving.</p>
+        <div class="auth__sticker" aria-hidden="true">
+          <span class="auth__sticker-day">Today</span>
+          <span class="auth__sticker-item" style="--c:#FFDE59">9:00 Lecture</span>
+          <span class="auth__sticker-item" style="--c:#FF8159">13:00 Lab</span>
+          <span class="auth__sticker-item" style="--c:#8BE3BF">18:00 Gym</span>
+        </div>
+      </section>
+
+      <form class="auth-card" id="login-form" novalidate>
+        <h2>Log in</h2>
+
+        <div class="field">
+          <label class="label" for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com">
+          <span class="field__error"></span>
+        </div>
+
+        <div class="field">
+          <div class="field__row">
+            <label class="label" for="password">Password</label>
+            <a class="auth__link" href="#" id="forgot-link">Forgot my password?</a>
+          </div>
+          <div class="password">
+            <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="Your password">
+            <button class="password__toggle" type="button" aria-label="Show password" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+          </div>
+          <span class="field__error"></span>
+        </div>
+
+        <label class="remember"><input type="checkbox" id="remember" checked> Keep me logged in</label>
+
+        <button class="btn btn--yellow btn--block auth__submit" type="submit">Log in</button>
+
+        <p class="auth__switch">Don't have an account yet? <a href="signup.html">Sign up</a></p>
+      </form>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="/main_webpages/javascript/global.js"></script>
+  <script src="/main_webpages/javascript/login.js"></script>
+</body>
+</html>

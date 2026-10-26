@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sign up | Scheduler</title>
+  <link rel="icon" href="/main_webpages/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/main_webpages/css/global.css">
+  <link rel="stylesheet" href="/main_webpages/css/signup.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="auth">
+    <div class="container auth__grid">
+      <section class="auth__intro">
+        <h1>Plan your first calm week.</h1>
+        <p>Create a free account with your email. We will send a one-time code to confirm it is you.</p>
+        <ol class="signup-steps" aria-label="Sign up progress">
+          <li class="is-current" data-step="1"><span>1</span>Create account</li>
+          <li data-step="2"><span>2</span>Verify email</li>
+          <li data-step="3"><span>3</span>Start planning</li>
+        </ol>
+      </section>
+
+      <div class="auth-card">
+        <!-- Step 1: email and password -->
+        <form id="signup-form" class="auth-step" novalidate>
+          <h2>Sign up</h2>
+          <div class="field">
+            <label class="label" for="email">Email</label>
+            <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com">
+            <span class="field__error"></span>
+          </div>
+          <div class="field">
+            <label class="label" for="password">Password</label>
+            <div class="password">
+              <input class="input" id="password" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" aria-describedby="pw-rules">
+              <button class="password__toggle" type="button" aria-label="Show password" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+            <div class="strength" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <ul class="pw-rules" id="pw-rules">
+              <li data-rule="length">8 or more characters</li>
+              <li data-rule="number">A number</li>
+              <li data-rule="letter">A letter</li>
+            </ul>
+            <span class="field__error"></span>
+          </div>
+          <button class="btn btn--orange btn--block auth__submit" type="submit">Sign up</button>
+          <p class="auth__switch">Already have an account? <a href="login.html">Log in</a></p>
+        </form>
+
+        <!-- Step 2: one-time code -->
+        <form id="otp-form" class="auth-step" novalidate hidden>
+          <h2>Enter your code</h2>
+          <p class="otp__sent">We sent a 6-digit code to <strong id="otp-email"></strong>. It expires in 5 minutes.</p>
+          <p class="otp__demo" id="otp-demo" role="note"></p>
+          <fieldset class="otp" id="otp-inputs">
+            <legend class="visually-hidden">One-time code</legend>
+            <input class="otp__box" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code" aria-label="Digit 1">
+            <input class="otp__box" type="text" inputmode="numeric" maxlength="6" aria-label="Digit 2">
+            <input class="otp__box" type="text" inputmode="numeric" maxlength="6" aria-label="Digit 3">
+            <input class="otp__box" type="text" inputmode="numeric" maxlength="6" aria-label="Digit 4">
+            <input class="otp__box" type="text" inputmode="numeric" maxlength="6" aria-label="Digit 5">
+            <input class="otp__box" type="text" inputmode="numeric" maxlength="6" aria-label="Digit 6">
+          </fieldset>
+          <p class="field__error otp__error" id="otp-error" aria-live="polite"></p>
+          <button class="btn btn--orange btn--block auth__submit" type="submit">Verify code</button>
+          <div class="otp__actions">
+            <button class="auth__link-btn" type="button" id="resend-btn" disabled>Resend code in <span id="resend-timer">60</span>s</button>
+            <button class="auth__link-btn" type="button" id="change-email">Change email</button>
+          </div>
+        </form>
+
+        <!-- Step 3: done -->
+        <div id="signup-done" class="auth-step done" hidden>
+          <div class="done__icon" aria-hidden="true">✓</div>
+          <h2>You're all set</h2>
+          <p>Your email is verified and your account is ready.</p>
+          <a class="btn btn--yellow btn--block" href="index.html">Go to my home page</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="/main_webpages/javascript/global.js"></script>
+  <script src="/main_webpages/javascript/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* =========================================================
+   Log in page styles
+   ========================================================= */
+/* ---------- Auth layout ---------- */
+.auth {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: calc(var(--nav-h) + 2.5rem) 0 4rem;
+  display: flex;
+  align-items: center;
+  background-color: var(--blue);
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255,255,255,.08) 2px, transparent 2px);
+  background-size: 48px 48px;
+  border-bottom: var(--border-thick);
+}
+.auth__grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 480px);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+.auth__intro { color: var(--paper); }
+.auth__intro h1 { text-shadow: 4px 4px 0 var(--ink); max-width: 12ch; }
+.auth__intro p { font-size: var(--step-1); max-width: 42ch; line-height: 1.5; }
+
+.auth-card {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--paper);
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  box-shadow: 12px 12px 0 var(--ink);
+}
+.auth-card h2 { font-size: 2rem; }
+.auth__submit { margin-top: .5rem; font-size: 1.15rem; padding-block: 1rem; }
+.auth__link { font-weight: 700; font-size: var(--step--1); color: var(--blue); }
+.auth__link:hover { color: var(--ink); }
+.auth__switch { margin: 1.5rem 0 0; text-align: center; font-weight: 600; }
+.auth__switch a { font-weight: 800; color: var(--blue); }
+
+/* Password field with show/hide button */
+.password { position: relative; }
+.password .input { padding-right: 3.5rem; }
+.password__toggle {
+  position: absolute;
+  right: .55rem; top: 50%;
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  transform: translateY(-50%);
+  background: var(--sand);
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.password__toggle svg { width: 20px; height: 20px; }
+.password__toggle[aria-pressed="true"] { background: var(--yellow); }
+
+@media (max-width: 860px) {
+  .auth__grid { grid-template-columns: 1fr; }
+  .auth__intro h1 { max-width: none; }
+}
+
+/* ---------- Log in specifics ---------- */
+.remember { display: flex; align-items: center; gap: .6rem; margin-bottom: 1.25rem; font-weight: 600; cursor: pointer; }
+.remember input { width: 20px; height: 20px; accent-color: var(--blue); }
+
+.auth__sticker {
+  display: grid;
+  gap: .6rem;
+  max-width: 280px;
+  margin-top: 2rem;
+  padding: 1.1rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transform: rotate(-3deg);
+}
+.auth__sticker-day { font-weight: 900; font-size: 1.2rem; }
+.auth__sticker-item { padding: .5rem .8rem; background: var(--c); border: 2px solid var(--ink); border-radius: 10px; font-weight: 700; }
+@media (max-width: 860px) { .auth__sticker { display: none; } }

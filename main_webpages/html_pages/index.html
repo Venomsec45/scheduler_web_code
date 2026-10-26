@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Scheduler | Your schedule tracker</title>
+  <link rel="icon" href="/main_webpages/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/main_webpages/css/global.css">
+  <link rel="stylesheet" href="/main_webpages/css/home.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <!-- ===== Hero / welcome ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__light" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="hero__hello">Hello, <span id="welcome-name">friend</span>!</p>
+          <h1>Welcome to Scheduler. Plan a week that actually fits.</h1>
+          <p class="hero__lead">
+            [Welcome message placeholder] Track classes, meetings and personal time in one place,
+            see where your week gets crowded, and fix it before it happens.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--yellow" href="signup.html">Get started</a>
+            <a class="btn btn--white" href="how-it-works.html">See how it works</a>
+          </div>
+        </div>
+
+        <div class="week-card" aria-label="Example week preview">
+          <div class="week-card__head">
+            <strong>This week</strong>
+            <span class="week-card__badge">68% booked</span>
+          </div>
+          <div class="week-card__grid">
+            <div class="day"><b>Mon</b><i class="slot slot--red" style="--h:3"></i><i class="slot slot--amber" style="--h:2"></i></div>
+            <div class="day"><b>Tue</b><i class="slot slot--blue" style="--h:2"></i><i class="slot slot--yellow" style="--h:1"></i></div>
+            <div class="day day--busy"><b>Wed</b><i class="slot slot--orange" style="--h:3"></i><i class="slot slot--red" style="--h:2"></i><i class="slot slot--gold" style="--h:1"></i></div>
+            <div class="day"><b>Thu</b><i class="slot slot--mint" style="--h:2"></i></div>
+            <div class="day"><b>Fri</b><i class="slot slot--amber" style="--h:2"></i><i class="slot slot--blue" style="--h:1"></i></div>
+          </div>
+          <p class="week-card__tip">Wednesday is getting crowded. Move "Study group" to Thursday?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== What the website is about ===== -->
+    <section class="section about-strip">
+      <div class="container about-strip__inner">
+        <div class="reveal">
+          <h2>What Scheduler is all about</h2>
+          <p>
+            Scheduler is a schedule tracker that turns your tasks, classes and events into one clear
+            weekly view. Instead of juggling sticky notes and three different apps, you add
+            everything once and Scheduler keeps watch: it spots clashes, shows how full your days
+            are and suggests better times when things pile up.
+          </p>
+        </div>
+        <ul class="about-strip__facts reveal">
+          <li><strong>One calendar</strong><span>for school, work and personal plans</span></li>
+          <li><strong>Live warnings</strong><span>when two plans overlap</span></li>
+          <li><strong>Weekly insights</strong><span>on your busiest days and weeks</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Upcoming seminar ===== -->
+    <section class="section seminar-wrap">
+      <div class="container">
+        <article class="seminar reveal">
+          <div class="seminar__date">
+            <span class="seminar__month">Nov</span>
+            <span class="seminar__day">21</span>
+            <span class="seminar__year">2026</span>
+          </div>
+          <div class="seminar__body">
+            <span class="seminar__tag">Upcoming seminar</span>
+            <h2>Time Blocking for Busy Students</h2>
+            <p>Learn a simple weekly planning routine, how to protect focus time and how to recover when your schedule falls apart.</p>
+            <ul class="seminar__meta">
+              <li><strong>Time:</strong> 2:00 PM to 4:00 PM</li>
+              <li><strong>Where:</strong> Online via Zoom</li>
+              <li><strong>Speaker:</strong> Dr. Placeholder Name</li>
+            </ul>
+            <div class="seminar__countdown" id="countdown" aria-live="polite"></div>
+            <button class="btn btn--yellow" type="button" id="reserve-btn">Reserve a seat</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Features ===== -->
+    <section class="section features" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Main features</h2>
+          <p>Everything you need to keep a busy schedule under control.</p>
+        </div>
+
+        <div class="features__grid">
+          <article class="feature feature--red reveal">
+            <h3>Smart schedule conflict</h3>
+            <p>Scheduler checks every new plan against your calendar and warns you the moment two things overlap.</p>
+            <div class="conflict-demo">
+              <span class="conflict-demo__a">Math class 1:00 to 2:30</span>
+              <span class="conflict-demo__b">Dentist 2:00 to 3:00</span>
+              <span class="conflict-demo__flag">Overlap: 30 min</span>
+            </div>
+          </article>
+
+          <article class="feature feature--yellow reveal">
+            <h3>Progress tracking</h3>
+            <p>Mark tasks as done and watch your weekly goals fill up.</p>
+            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72">
+              <div class="progress__fill" style="--value:72%"></div>
+            </div>
+            <p class="progress__label"><strong>18 of 25</strong> tasks done this week</p>
+          </article>
+
+          <article class="feature feature--sky reveal" id="custom-card">
+            <h3>Customization</h3>
+            <p>Pick colors, categories and views that match how you plan. Try it:</p>
+            <div class="swatches" role="radiogroup" aria-label="Pick a card color">
+              <button type="button" class="swatch is-active" style="--c:#A9C6FF" role="radio" aria-checked="true" aria-label="Sky"></button>
+              <button type="button" class="swatch" style="--c:#FF5959" role="radio" aria-checked="false" aria-label="Red"></button>
+              <button type="button" class="swatch" style="--c:#FFAE59" role="radio" aria-checked="false" aria-label="Amber"></button>
+              <button type="button" class="swatch" style="--c:#FFDE59" role="radio" aria-checked="false" aria-label="Yellow"></button>
+              <button type="button" class="swatch" style="--c:#8BE3BF" role="radio" aria-checked="false" aria-label="Mint"></button>
+            </div>
+          </article>
+
+          <article class="feature feature--wide feature--white reveal">
+            <h3>Top most occupied days in a week</h3>
+            <p>See what percentage of your booked hours land on each day.</p>
+            <div class="bars" data-bars>
+              <div class="bar bar--top"><span>Wed</span><div class="bar__track"><div class="bar__fill" style="--value:31%"></div></div><em>31%</em></div>
+              <div class="bar"><span>Mon</span><div class="bar__track"><div class="bar__fill" style="--value:22%"></div></div><em>22%</em></div>
+              <div class="bar"><span>Thu</span><div class="bar__track"><div class="bar__fill" style="--value:19%"></div></div><em>19%</em></div>
+              <div class="bar"><span>Tue</span><div class="bar__track"><div class="bar__fill" style="--value:16%"></div></div><em>16%</em></div>
+              <div class="bar"><span>Fri</span><div class="bar__track"><div class="bar__fill" style="--value:12%"></div></div><em>12%</em></div>
+            </div>
+          </article>
+
+          <article class="feature feature--wide feature--orange reveal">
+            <h3>Top most occupied weeks in the month</h3>
+            <p>Spot heavy weeks early so you can spread the load.</p>
+            <div class="bars bars--weeks" data-bars>
+              <div class="bar bar--top"><span>Week 3</span><div class="bar__track"><div class="bar__fill" style="--value:34%"></div></div><em>34%</em></div>
+              <div class="bar"><span>Week 2</span><div class="bar__track"><div class="bar__fill" style="--value:27%"></div></div><em>27%</em></div>
+              <div class="bar"><span>Week 4</span><div class="bar__track"><div class="bar__fill" style="--value:23%"></div></div><em>23%</em></div>
+              <div class="bar"><span>Week 1</span><div class="bar__track"><div class="bar__fill" style="--value:16%"></div></div><em>16%</em></div>
+            </div>
+          </article>
+
+          <article class="feature feature--mint feature--wide reveal">
+            <h3>Automatic schedule recommendations</h3>
+            <p>When a day gets too full, Scheduler suggests a better slot for the plans that can move.</p>
+            <div class="suggest" id="suggest">
+              <p class="suggest__text"><strong>Wednesday is 92% full.</strong> Move "Gym session" to Thursday at 6:00 PM?</p>
+              <div class="suggest__actions">
+                <button type="button" class="btn btn--blue" data-suggest="accept">Move it</button>
+                <button type="button" class="btn btn--white" data-suggest="dismiss">Keep it</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Testimonials ===== -->
+    <section class="section testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>What people say</h2>
+          <p>Sample testimonials. Replace these with real ones.</p>
+        </div>
+        <div class="testimonials__grid">
+          <figure class="quote quote--yellow reveal">
+            <blockquote>“[Testimonial placeholder] Scheduler showed me that Wednesdays were eating my whole week. Now I plan around it.”</blockquote>
+            <figcaption><span class="avatar" style="--bg:#FF8159">AR</span><span><strong>Alex Rivera</strong><small>College student</small></span></figcaption>
+          </figure>
+          <figure class="quote quote--blue reveal">
+            <blockquote>“[Testimonial placeholder] The conflict warning alone saved me from double booking two client calls.”</blockquote>
+            <figcaption><span class="avatar" style="--bg:#FFDE59">MS</span><span><strong>Maya Santos</strong><small>Freelance designer</small></span></figcaption>
+          </figure>
+          <figure class="quote quote--red reveal">
+            <blockquote>“[Testimonial placeholder] Our team finally sees who is overloaded before a deadline, not after.”</blockquote>
+            <figcaption><span class="avatar" style="--bg:#8BE3BF">JK</span><span><strong>Jordan Kim</strong><small>Team lead</small></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Call to action ===== -->
+    <section class="cta">
+      <div class="container cta__inner reveal">
+        <h2 class="cta__title">What are you waiting for?</h2>
+        <p class="cta__sub">Use Schedule Tracker now.</p>
+        <a class="btn btn--blue cta__btn" href="signup.html">Get started</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="/main_webpages/javascript/global.js"></script>
+  <script src="/main_webpages/javascript/home.js"></script>
+</body>
+</html>

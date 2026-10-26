@@ -1,0 +1,166 @@
+/* =========================================================
+   How it works page styles
+   ========================================================= */
+
+.steps { background: var(--paper); }
+
+.stepper {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.stepper__progress {
+  grid-column: 1 / -1;
+  height: 18px;
+  background: var(--sand);
+  border: var(--border);
+  border-radius: var(--pill);
+  overflow: hidden;
+}
+.stepper__progress span {
+  display: block;
+  height: 100%;
+  width: var(--fill, 16.66%);
+  background: var(--orange);
+  border-right: var(--border);
+  transition: width .5s var(--ease);
+}
+
+.stepper__tabs { display: grid; gap: .75rem; }
+.step-tab {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  width: 100%;
+  padding: .85rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  background: var(--paper);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform .15s var(--ease), box-shadow .15s var(--ease), background-color .2s;
+}
+.step-tab:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow); }
+.step-tab__num {
+  flex: none;
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  background: var(--sand);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  font-weight: 900;
+}
+.step-tab.is-done .step-tab__num { background: var(--mint); }
+.step-tab[aria-selected="true"] { background: var(--yellow); box-shadow: var(--shadow); }
+.step-tab[aria-selected="true"] .step-tab__num { background: var(--blue); color: var(--paper); }
+
+.stepper__panels {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--sand);
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.step-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  animation: panelIn .45s var(--ease);
+}
+.step-panel[hidden] { display: none; }
+@keyframes panelIn { from { opacity: 0; transform: translateX(24px); } }
+.step-panel__count {
+  display: inline-block;
+  margin-bottom: .75rem;
+  padding: .2rem .8rem;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--pill);
+  font-weight: 700;
+  font-size: .9rem;
+}
+.step-panel p { font-size: 1.1rem; }
+
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.checklist li { position: relative; padding-left: 2rem; font-weight: 600; }
+.checklist li::before {
+  content: "";
+  position: absolute; left: 0; top: .2em;
+  width: 20px; height: 20px;
+  background: var(--yellow);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.stepper__nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+
+/* ---------- Step illustrations ---------- */
+.mock {
+  min-height: 240px;
+  padding: 1.25rem;
+  background: var(--paper);
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: .75rem;
+  align-content: center;
+}
+.mock--form .mock__input { padding: .7rem .9rem; border: 2px solid var(--ink); border-radius: 10px; background: var(--sand); color: var(--muted); }
+.mock__otp { display: flex; gap: .4rem; }
+.mock__otp i { flex: 1; text-align: center; font-style: normal; font-weight: 900; padding: .6rem 0; background: var(--yellow); border: 2px solid var(--ink); border-radius: 8px; }
+.mock--list span { display: flex; justify-content: space-between; gap: .5rem; padding: .7rem .9rem; background: var(--c); border: 2px solid var(--ink); border-radius: 10px; font-weight: 800; }
+.mock--list small { font-weight: 600; }
+.mock--conflict span { padding: .7rem .9rem; border: 2px solid var(--ink); border-radius: 10px; font-weight: 700; background: var(--sky); }
+.mock--conflict span:nth-child(2) { background: var(--yellow); margin-left: 15%; }
+.mock--conflict b { justify-self: start; padding: .4rem .8rem; background: var(--red); border: 2px solid var(--ink); border-radius: var(--pill); }
+.mock__bar { height: 34px; border: var(--border); border-radius: var(--pill); overflow: hidden; background: var(--sand); }
+.mock__bar i { display: block; height: 100%; background: var(--blue); border-right: var(--border); }
+.mock--progress p { margin: 0; font-size: 1.2rem; }
+.mock--chart { grid-template-columns: repeat(5, 1fr); align-items: end; height: 240px; }
+.mock--chart i { height: var(--h); background: var(--gold); border: 2px solid var(--ink); border-radius: 8px 8px 0 0; }
+.mock--chart i.top { background: var(--red); }
+.mock--suggest { background: var(--mint); }
+.mock--suggest p { margin: 0; font-size: 1.1rem; }
+.mock--suggest span { justify-self: start; padding: .5rem 1.2rem; background: var(--blue); color: var(--paper); border: 2px solid var(--ink); border-radius: var(--pill); box-shadow: var(--shadow-sm); font-weight: 800; }
+
+@media (max-width: 960px) {
+  .stepper { grid-template-columns: 1fr; }
+  .stepper__tabs { grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); overflow-x: auto; padding: 0 6px 10px 0; scroll-snap-type: x mandatory; }
+  .step-tab { scroll-snap-align: start; }
+}
+@media (max-width: 680px) {
+  .step-panel { grid-template-columns: 1fr; }
+  .stepper__nav .btn { flex: 1; }
+}
+
+/* ---------- Behind the scenes ---------- */
+.system { background: var(--yellow); border-top: var(--border-thick); }
+.system__flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; counter-reset: flow; }
+.flow-box {
+  position: relative;
+  padding: 1.5rem;
+  background: var(--bg);
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.flow-box p { margin: 0; }
+.flow-box:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -1.35rem; top: 50%;
+  width: 1.2rem; height: 4px;
+  background: var(--ink);
+}
+.system__cta { margin-top: 2.5rem; }
+@media (max-width: 900px) {
+  .system__flow { grid-template-columns: 1fr 1fr; }
+  .flow-box::after { display: none; }
+}
+@media (max-width: 560px) { .system__flow { grid-template-columns: 1fr; } }

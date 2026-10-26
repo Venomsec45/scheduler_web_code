@@ -1,0 +1,68 @@
+/* =========================================================
+   Support page styles
+   ========================================================= */
+
+.support { background: var(--sand); }
+.support__grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.support-form {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--paper);
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+.support-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.counter { color: var(--muted); font-weight: 600; }
+
+.topic { border: 0; padding: 0; margin: 0 0 1.25rem; display: flex; flex-wrap: wrap; gap: .75rem; }
+.topic legend { margin-bottom: .5rem; }
+.chip input { position: absolute; opacity: 0; }
+.chip span {
+  display: inline-block;
+  padding: .5rem 1.1rem;
+  border: var(--border);
+  border-radius: var(--pill);
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color .2s, transform .15s;
+}
+.chip input:checked + span { background: var(--yellow); transform: translate(-2px, -2px); box-shadow: var(--shadow); }
+.chip input:focus-visible + span { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+.support__side { display: grid; gap: 1.5rem; }
+.info-card {
+  padding: 1.5rem;
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.info-card p { margin: 0; }
+.info-card a { font-weight: 800; }
+.info-card--yellow { background: var(--yellow); }
+.info-card--sky { background: var(--sky); }
+.info-card--mint { background: var(--mint); }
+
+.support-form.is-sent { text-align: center; }
+.sent h2 { margin-top: .5rem; }
+.sent__icon {
+  width: 84px; height: 84px;
+  margin: 0 auto;
+  display: grid; place-items: center;
+  background: var(--mint);
+  border: var(--border-thick);
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  font-size: 2.4rem;
+  font-weight: 900;
+}
+
+@media (max-width: 900px) { .support__grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .support-form__row { grid-template-columns: 1fr; gap: 0; } }

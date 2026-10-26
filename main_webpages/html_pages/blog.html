@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Blog | Scheduler</title>
+  <link rel="icon" href="/main_webpages/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/main_webpages/css/global.css">
+  <link rel="stylesheet" href="/main_webpages/css/blog.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="banner">
+      <div class="container">
+        <h1>Blog</h1>
+        <p>Personal insights from students, workers and teams who plan with Scheduler.</p>
+      </div>
+      <span class="banner__sticker">8 new stories</span>
+    </section>
+
+    <section class="section blog">
+      <div class="container">
+        <div class="filters" role="group" aria-label="Filter stories by topic">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All stories</button>
+          <button class="filter" type="button" data-filter="study" aria-pressed="false">Study</button>
+          <button class="filter" type="button" data-filter="work" aria-pressed="false">Work</button>
+          <button class="filter" type="button" data-filter="wellbeing" aria-pressed="false">Wellbeing</button>
+          <button class="filter" type="button" data-filter="teams" aria-pressed="false">Teams</button>
+        </div>
+        <div class="posts" id="posts">
+          <article class="post post--red post--featured" data-category="study">
+            <div class="post__cover pattern--dots">
+              <span class="post__tag">Study</span>
+            </div>
+            <div class="post__body">
+              <p class="post__meta"><time>Oct 18, 2026</time><span>5 min read</span></p>
+              <h2 class="post__title">How I stopped cramming the night before exams</h2>
+              <p class="post__excerpt">[Placeholder] Seeing that 40% of my week landed on Thursdays changed everything. I split my review sessions across three days and my sleep came back.</p>
+              <div class="post__full" hidden>
+                <p>[Placeholder] Seeing that 40% of my week landed on Thursdays changed everything. I split my review sessions across three days and my sleep came back.</p>
+                <p>[Placeholder full story] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+              </div>
+              <div class="post__foot">
+                <span class="post__author"><span class="post__avatar">BN</span><span><strong>Bea Navarro</strong><small>Nursing student</small></span></span>
+                <button class="btn btn--white post__read" type="button">Read story</button>
+              </div>
+            </div>
+          </article>
+          <article class="post post--blue" data-category="work">
+            <div class="post__cover pattern--grid">
+              <span class="post__tag">Work</span>
+            </div>
+            <div class="post__body">
+              <p class="post__meta"><time>Oct 12, 2026</time><span>4 min read</span></p>
+              <h2 class="post__title">Three meetings, one hour: what a clash taught me</h2>
+              <p class="post__excerpt">[Placeholder] I used to trust my memory for meeting times. After the conflict check caught three overlaps in a week, I put everything in one calendar.</p>
+              <div class="post__full" hidden>
+                <p>[Placeholder] I used to trust my memory for meeting times. After the conflict check caught three overlaps in a week, I put everything in one calendar.</p>
+                <p>[Placeholder full story] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+              </div>
+              <div class="post__foot">
+                <span class="post__author"><span class="post__avatar">MV</span><span><strong>Marco Velasquez</strong><small>Project manager</small></span></span>
+                <button class="btn btn--white post__read" type="button">Read story</button>
+              </div>
+            </div>
+          </article>
+          <article class="post post--mint" data-category="wellbeing">
+            <div class="post__cover pattern--waves">
+              <span class="post__tag">Wellbeing</span>
+            </div>
+            <div class="post__body">
+              <p class="post__meta"><time>Oct 5, 2026</time><span>6 min read</span></p>
+              <h2 class="post__title">Scheduling rest like it is a real appointment</h2>
+              <p class="post__excerpt">[Placeholder] If rest is not on the calendar, it does not happen. I block two evenings a week and treat them like client sessions.</p>
+              <div class="post__full" hidden>
+                <p>[Placeholder] If rest is not on the calendar, it does not happen. I block two evenings a week and treat them like client sessions.</p>
+                <p>[Placeholder full story] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+              </div>
+              <div class="post__foot">
+                <span class="post__author"><span class="post__avatar">HL</span><span><strong>Hannah Lee</strong><small>Wellness coach</small></span></span>
+                <button class="btn btn--white post__read" type="button">Read story</button>
+              </div>
+            </div>
+          </article>
+          <article class="post post--amber" data-category="teams">
+            <div class="post__cover pattern--stripes">
+              <span class="post__tag">Teams</span>
+            </div>
+            <div class="post__body">
+              <p class="post__meta"><time>Sep 29, 2026</time><span>7 min read</span></p>
+              <h2 class="post__title">Running a student org without burning out the officers</h2>
+              <p class="post__excerpt">[Placeholder] Shared schedules showed us that two officers carried most of the load. We rebalanced tasks before finals week.</p>
+              <div class="post__full" hidden>
+                <p>[Placeholder] Shared schedules showed us that two officers carried most of the load. We rebalanced tasks before finals week.</p>
+                <p>[Placeholder full story] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+              </div>
+              <div class="post__foot">
+                <span class="post__author"><span class="post__avatar">PR</span><span><strong>Paolo Reyes</strong><small>Student council president</small></span></span>
+                <button class="btn btn--white post__read" type="button">Read story</button>
+              </div>
+            </div>
+          </article>
+          <article class="post post--yellow" data-category="study">
+            <div class="post__cover pattern--grid">
+              <span class="post__tag">Study</span>
+            </div>
+            <div class="post__body">
+              <p class="post__meta"><time>Sep 21, 2026</time><span>4 min read</span></p>
+              <h2 class="post__title">The week-three slump and how to see it coming</h2>
+              <p class="post__excerpt">[Placeholder] My busiest week every month was week three. Now I move flexible tasks to week one and the slump is much smaller.</p>
+              <div class="post__full" hidden>
+                <p>[Placeholder] My busiest week every month was week three. Now I move flexible tasks to week one and the slump is much smaller.</p>
+                <p>[Placeholder full story] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+              </div>
+              <div class="post__foot">
+                <span class="post__author"><span class="post__avatar">AR</span><span><strong>Aisha Rahman</strong><small>Engineering student</small></span></span>
+                <button class="btn btn--white post__read" type="button">Read story</button>
+              </div>
+            </div>
+          </article>
+          <article class="post post--orange" data-category="work">
+            <div class="post__cover pattern--dots">
+              <span class="post__tag">Work</span>
+            </div>
+            <div class="post__body">
+              <p class="post__meta"><time>Sep 14, 2026</time><span>5 min read</span></p>
+              <h2 class="post__title">Freelancing across time zones without missing calls</h2>
+              <p class="post__excerpt">[Placeholder] Clients in three time zones meant constant confusion. A single weekly view with clear blocks fixed most of it.</p>
+              <div class="post__full" hidden>
+                <p>[Placeholder] Clients in three time zones meant constant confusion. A single weekly view with clear blocks fixed most of it.</p>
+                <p>[Placeholder full story] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+              </div>
+              <div class="post__foot">
+                <span class="post__author"><span class="post__avatar">LB</span><span><strong>Lukas Becker</strong><small>Freelance developer</small></span></span>
+                <button class="btn btn--white post__read" type="button">Read story</button>
+              </div>
+            </div>
+          </article>
+          <article class="post post--sky" data-category="wellbeing">
+            <div class="post__cover pattern--waves">
+              <span class="post__tag">Wellbeing</span>
+            </div>
+            <div class="post__body">
+              <p class="post__meta"><time>Sep 7, 2026</time><span>3 min read</span></p>
+              <h2 class="post__title">Why I say yes to the recommendation and no to guilt</h2>
+              <p class="post__excerpt">[Placeholder] When Scheduler suggested moving my lab write-up, I felt like I was failing. It turned out to be the best decision of the week.</p>
+              <div class="post__full" hidden>
+                <p>[Placeholder] When Scheduler suggested moving my lab write-up, I felt like I was failing. It turned out to be the best decision of the week.</p>
+                <p>[Placeholder full story] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+              </div>
+              <div class="post__foot">
+                <span class="post__author"><span class="post__avatar">SM</span><span><strong>Sofia Martins</strong><small>Graduate researcher</small></span></span>
+                <button class="btn btn--white post__read" type="button">Read story</button>
+              </div>
+            </div>
+          </article>
+          <article class="post post--gold" data-category="teams">
+            <div class="post__cover pattern--stripes">
+              <span class="post__tag">Teams</span>
+            </div>
+            <div class="post__body">
+              <p class="post__meta"><time>Aug 30, 2026</time><span>6 min read</span></p>
+              <h2 class="post__title">Planning a product launch with a team of six</h2>
+              <p class="post__excerpt">[Placeholder] We put every launch task on shared calendars and watched the busiest days. Nobody pulled an all-nighter for the first time.</p>
+              <div class="post__full" hidden>
+                <p>[Placeholder] We put every launch task on shared calendars and watched the busiest days. Nobody pulled an all-nighter for the first time.</p>
+                <p>[Placeholder full story] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+              </div>
+              <div class="post__foot">
+                <span class="post__author"><span class="post__avatar">DO</span><span><strong>Daniel Okafor</strong><small>Startup founder</small></span></span>
+                <button class="btn btn--white post__read" type="button">Read story</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="reader" id="reader" aria-labelledby="reader-title">
+      <div class="reader__inner">
+        <button class="reader__close" type="button" id="reader-close" aria-label="Close story">&times;</button>
+        <span class="post__tag" id="reader-tag"></span>
+        <h2 id="reader-title"></h2>
+        <div class="reader__author" id="reader-author"></div>
+        <div class="reader__content" id="reader-content"></div>
+      </div>
+    </dialog>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="/main_webpages/javascript/global.js"></script>
+  <script src="/main_webpages/javascript/blog.js"></script>
+</body>
+</html>

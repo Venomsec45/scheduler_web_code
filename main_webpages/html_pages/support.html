@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Support | Scheduler</title>
+  <link rel="icon" href="/main_webpages/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/main_webpages/css/global.css">
+  <link rel="stylesheet" href="/main_webpages/css/support.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="banner">
+      <div class="container">
+        <h1>Support</h1>
+        <p>Have a question or a problem? Send us a message and our team will reply by email.</p>
+      </div>
+      <span class="banner__sticker">We reply within 24h</span>
+    </section>
+
+    <section class="section support">
+      <div class="container support__grid">
+        <form class="support-form" id="support-form" novalidate>
+          <h2>Send us a message</h2>
+
+          <fieldset class="topic">
+            <legend class="label">This is about</legend>
+            <label class="chip"><input type="radio" name="topic" value="question" checked><span>A question</span></label>
+            <label class="chip"><input type="radio" name="topic" value="problem"><span>A problem</span></label>
+          </fieldset>
+
+          <div class="support-form__row">
+            <div class="field">
+              <label class="label" for="name">Name</label>
+              <input class="input" id="name" name="name" type="text" autocomplete="name" placeholder="Juan Dela Cruz">
+              <span class="field__error"></span>
+            </div>
+            <div class="field">
+              <label class="label" for="email">Email</label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com">
+              <span class="field__error"></span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="phone">Contact number</label>
+            <input class="input" id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+63 912 345 6789">
+            <span class="field__error"></span>
+          </div>
+
+          <div class="field">
+            <div class="field__row">
+              <label class="label" for="message">Message</label>
+              <small class="counter" id="counter">0 / 1000</small>
+            </div>
+            <textarea class="input" id="message" name="message" maxlength="1000" placeholder="Tell us what you need help with. For problems, include what you clicked and what you expected to happen."></textarea>
+            <span class="field__error"></span>
+          </div>
+
+          <button class="btn btn--orange" type="submit">Send message</button>
+        </form>
+
+        <aside class="support__side">
+          <div class="info-card info-card--yellow">
+            <h3>Email us</h3>
+            <p><a href="mailto:support@scheduler.app">support@scheduler.app</a></p>
+          </div>
+          <div class="info-card info-card--sky">
+            <h3>Office hours</h3>
+            <p>Monday to Friday<br>9:00 AM to 6:00 PM</p>
+          </div>
+          <div class="info-card info-card--mint">
+            <h3>Quick answers</h3>
+            <p>Most questions are already answered in our <a href="faq.html">FAQ</a>.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="/main_webpages/javascript/global.js"></script>
+  <script src="/main_webpages/javascript/support.js"></script>
+</body>
+</html>
