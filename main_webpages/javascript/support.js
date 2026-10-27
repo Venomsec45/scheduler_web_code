@@ -51,7 +51,7 @@
         '<div class="sent__icon" aria-hidden="true">✓</div>' +
         "<h2>Message sent</h2>" +
         "<p>Thanks, " + escapeHtml(name) + ". We received your " + topic + " and will reply to <strong>" + escapeHtml(email) + "</strong> within 24 hours.</p>" +
-        '<a class="btn btn--yellow" href="support.html">Send another message</a>' +
+        '<a class="btn btn--yellow" href="http://127.0.0.1:8000/support/v1">Send another message</a>' +
       "</div>";
     S.toast("Message sent.", "success");
   });
