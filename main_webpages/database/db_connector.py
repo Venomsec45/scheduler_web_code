@@ -1,0 +1,9 @@
+import mysql.connector
+
+def connect_to_db():
+    return mysql.connector.connect(
+        host="127.0.0.1",
+        user="root",
+        password="pass123",
+        database="schedule_tracker_db"    
+    )
