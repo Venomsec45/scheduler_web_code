@@ -6,11 +6,11 @@
   "use strict";
 
   const NAV_LINKS = [
-    { href: "about.html", label: "About us" },
-    { href: "how-it-works.html", label: "How it works" },
-    { href: "support.html", label: "Support" },
-    { href: "faq.html", label: "FAQ" },
-    { href: "blog.html", label: "Blog" }
+    { href: "http://127.0.0.1:8000/about", label: "About us" },
+    { href: "http://127.0.0.1:8000/how it works", label: "How it works" },
+    { href: "http://127.0.0.1:8000/support/v1", label: "Support" },
+    { href: "http://127.0.0.1:8000/faq", label: "FAQ" },
+    { href: "http://127.0.0.1:8000/blog", label: "Blog" }
   ];
 
   const SOCIAL = {
@@ -34,16 +34,16 @@
     header.innerHTML =
       '<div class="container">' +
         '<div class="nav__bar">' +
-          '<a class="nav__logo" href="/main_webpages/html_pages/index.html" aria-label="Scheduler home">' +
-            '<img src="main_webpages/images/logo.png" alt="Scheduler" width="847" height="317">' +
+          '<a class="nav__logo" href="http://127.0.0.1:8000/home" aria-label="Scheduler home">' +
+            '<img src="/main_webpages/images/logo.png" alt="Scheduler" width="847" height="317">' +
           "</a>" +
           '<div class="nav__menu" id="nav-menu">' +
             '<div class="nav__menu-inner">' +
               '<nav class="nav__panel" aria-label="Main">' +
                 '<ul class="nav__links">' + links + "</ul>" +
                 '<div class="nav__auth">' +
-                  '<a class="btn btn--ghost" href="login.html">Log in</a>' +
-                  '<a class="btn btn--yellow" href="signup.html">Sign up</a>' +
+                  '<a class="btn btn--ghost" href="http://127.0.0.1:8000/log in">Log in</a>' +
+                  '<a class="btn btn--yellow" href="http://127.0.0.1:8000/sign up">Sign up</a>' +
                 "</div>" +
               "</nav>" +
             "</div>" +
@@ -112,18 +112,18 @@
       '<div class="container">' +
         '<div class="footer__top">' +
           '<div class="footer__brand">' +
-            '<a href="index.html"><img src="assets/logo.png" alt="Scheduler" width="847" height="317"></a>' +
+            '<a href="http://127.0.0.1:8000/home"><img src="main_webpages/images/logo.png" alt="Scheduler" width="847" height="317"></a>' +
             "<small>&copy; " + year + " Scheduler. All rights reserved.</small>" +
           "</div>" +
           '<div class="footer__cols">' +
             "<div><h4>Product</h4><ul>" +
-              '<li><a href="how-it-works.html">How it works</a></li>' +
-              '<li><a href="blog.html">Blog</a></li>' +
-              '<li><a href="signup.html">Create an account</a></li>' +
+              '<li><a href="http://127.0.0.1:8000/how it works">How it works</a></li>' +
+              '<li><a href="http://127.0.0.1:8000/blog">Blog</a></li>' +
+              '<li><a href="http://127.0.0.1:8000/sign up">Create an account</a></li>' +
             "</ul></div>" +
             "<div><h4>Help</h4><ul>" +
-              '<li><a href="support.html">Contact support</a></li>' +
-              '<li><a href="faq.html">FAQ</a></li>' +
+              '<li><a href="http://127.0.0.1:8000/support">Contact support</a></li>' +
+              '<li><a href="http://127.0.0.1:8000/faq">FAQ</a></li>' +
               '<li><a href="mailto:hello@scheduler.app">hello@scheduler.app</a></li>' +
             "</ul></div>" +
           "</div>" +
