@@ -1,0 +1,18 @@
+/* =========================================================
+   Help & support page styles
+   ========================================================= */
+
+.support { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+.support__form { padding: clamp(1.25rem, 3vw, 2rem); }
+.support__side { display: grid; gap: 1rem; }
+.support__tile { color: #000; }
+.support__tile h2 { font-size: 1.15rem; }
+.support__tile p { margin: 0; }
+.support__tile a { color: #000; font-weight: 800; }
+.support__tile--yellow { background: var(--yellow); }
+.support__tile--sky { background: var(--sky); }
+.support__tile--mint { background: var(--mint); }
+.sent { display: grid; justify-items: center; gap: .5rem; text-align: center; padding: 1rem 0; }
+.sent__icon { width: 80px; height: 80px; display: grid; place-items: center; background: var(--mint); color: #000; border: var(--border); border-radius: 50%; box-shadow: var(--shadow); }
+.sent__icon svg { width: 40px; height: 40px; }
+@media (max-width: 900px) { .support { grid-template-columns: 1fr; } }

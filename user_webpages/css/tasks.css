@@ -1,0 +1,40 @@
+/* =========================================================
+   Tasks page styles
+   ========================================================= */
+
+.task-tools { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; padding: 1rem; }
+.task-tools__right { display: flex; flex-wrap: wrap; gap: .75rem; }
+.task-tools__right .input { width: 220px; }
+.task-tools__right .select { width: auto; }
+.seg .count { display: inline-block; min-width: 1.6em; margin-left: .25rem; padding: 0 .35rem; border: 2px solid currentColor; border-radius: var(--pill); font-size: .78rem; text-align: center; }
+
+.tgroup { margin-bottom: 1.5rem; }
+.tgroup__title { font-size: 1.05rem; }
+.tlist { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.trow {
+  display: grid;
+  grid-template-columns: auto 130px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: .9rem;
+  padding: .75rem .9rem;
+  background: var(--surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.trow--overtime { background: color-mix(in srgb, var(--st-overtime) 14%, var(--surface)); }
+.trow--finished .trow__main strong { text-decoration: line-through; text-decoration-thickness: 2px; }
+.trow--cancelled { opacity: .72; }
+.trow__time { font-weight: 800; font-size: .9rem; }
+.trow__time small { display: block; color: var(--text-muted); font-weight: 600; }
+.trow__main { min-width: 0; }
+.trow__main p { margin: .1rem 0 .25rem; color: var(--text-muted); font-size: .92rem; }
+.trow__sched { display: inline-flex; align-items: center; gap: .35rem; padding: 0; background: none; border: 0; color: var(--link); font-weight: 700; font-size: .88rem; cursor: pointer; text-decoration: underline; }
+.trow__sched i { width: 12px; height: 12px; border: 2px solid var(--line); border-radius: 4px; }
+.trow__badges { display: flex; flex-wrap: wrap; gap: .3rem; justify-content: flex-end; }
+@media (max-width: 860px) {
+  .trow { grid-template-columns: auto minmax(0, 1fr); }
+  .trow__time { grid-column: 2; }
+  .trow__main, .trow__badges, .trow__actions { grid-column: 1 / -1; }
+  .trow__badges { justify-content: flex-start; }
+}

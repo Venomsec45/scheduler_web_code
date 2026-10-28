@@ -1,0 +1,31 @@
+/* =========================================================
+   Notifications page styles
+   ========================================================= */
+
+.page-head__actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.notif-tools { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem; margin-bottom: 1.25rem; }
+.notif-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; max-width: 900px; }
+.notif {
+  display: flex; align-items: flex-start; gap: .9rem;
+  padding: .85rem 1rem;
+  background: var(--surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: opacity .2s, transform .2s;
+}
+.notif.is-unread { box-shadow: var(--shadow); border-left-width: 8px; }
+.notif.is-leaving { opacity: 0; transform: translateX(30px); }
+.notif__icon { flex: none; width: 42px; height: 42px; display: grid; place-items: center; color: #000; border: var(--border); border-radius: 50%; }
+.notif__icon svg { width: 20px; height: 20px; }
+.notif__icon--yellow { background: var(--yellow); }
+.notif__icon--red { background: var(--st-overtime); }
+.notif__icon--mint { background: var(--st-finished); }
+.notif__icon--sky { background: var(--sky); }
+.notif__icon--amber { background: var(--amber); }
+.notif__icon--sand { background: var(--sand); }
+.notif__body { flex: 1; min-width: 0; display: grid; gap: .15rem; padding: 0; background: none; border: 0; text-align: left; cursor: pointer; }
+.notif__body[disabled] { cursor: default; }
+.notif__top { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.notif__dot { padding: 0 .5rem; background: var(--red); color: #000; border: 2px solid var(--line); border-radius: var(--pill); font-size: .72rem; font-weight: 900; }
+.notif__meta { font-size: .82rem; color: var(--text-muted); font-weight: 700; }

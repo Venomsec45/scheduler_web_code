@@ -149,10 +149,11 @@ p { margin: 0 0 1em; }
 .nav__logo img {
   height: 56px;
   width: auto;
-  /* White logo while the nav sits on the page banner */
-  filter: brightness(0) invert(1);
-  transition: filter .35s var(--ease);
 }
+/* White logo while the nav sits on the page banner, full-color logo after scrolling */
+.nav__logo-color { display: none; }
+.nav.is-scrolled .nav__logo-white { display: none; }
+.nav.is-scrolled .nav__logo-color { display: block; }
 
 /* Desktop: links sit inline in the bar */
 .nav__menu { flex: 1; }
@@ -222,7 +223,6 @@ p { margin: 0 0 1em; }
   background: var(--paper);
   border-bottom-color: var(--ink);
 }
-.nav.is-scrolled .nav__logo img { filter: none; }
 .nav.is-scrolled .nav__links a,
 .nav.is-scrolled .btn--ghost {
   color: var(--yellow);

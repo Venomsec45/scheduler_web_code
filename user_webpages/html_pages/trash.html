@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Trash | Scheduler</title>
+  <link rel="icon" href="/user_webpages/images/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <script>
+    /* Apply the saved theme before the page paints (avoids a flash) */
+    try {
+      var c = JSON.parse(localStorage.getItem("scheduler-theme-cache") || "null");
+      if (c) { var r = document.documentElement; r.dataset.theme = c.theme; r.dataset.cb = c.cb; r.dataset.contrast = c.contrast; r.style.setProperty("--font-scale", c.scale / 100); }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/user_webpages/css/app.css">
+  <link rel="stylesheet" href="/user_webpages/css/trash.css">
+</head>
+<body data-page="trash">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app" id="app">
+    <header id="topbar"></header>
+    <aside id="sidebar"></aside>
+    <div class="scrim" aria-hidden="true"></div>
+    <main class="main" id="main" tabindex="-1">
+      <div class="page-head">
+        <div>
+          <h1>Trash</h1>
+          <p>Removed schedules and reminders stay here for 5 days, then they are deleted automatically.</p>
+        </div>
+        <button type="button" class="btn btn--danger" id="empty-trash">Empty trash</button>
+      </div>
+      <p class="notice notice--info trash-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v5h1"/></svg><span>Recovering a schedule puts it back on its day. If another schedule has since taken its time slots, that schedule is overwritten and moved here instead, so nothing is lost.</span></p>
+      <ul class="trash-list" id="trash-list"></ul>
+    </main>
+  </div>
+  <div class="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="/user_webpages/javascript/store.js"></script>
+  <script src="/user_webpages/javascript/app.js"></script>
+  <script src="/user_webpages/javascript/trash.js"></script>
+</body>
+</html>

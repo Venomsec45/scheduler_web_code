@@ -1,0 +1,30 @@
+/* =========================================================
+   Reminders page styles
+   ========================================================= */
+
+.rem-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; align-items: start; }
+.rem-empty { grid-column: 1 / -1; }
+.rem-empty .btn { margin-top: .5rem; }
+.rem-col { padding: 1rem; background: var(--surface); border: var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+.rem-col h2 { display: flex; align-items: center; gap: .5rem; font-size: 1.15rem; }
+.rem-col--upcoming h2 { color: var(--text); }
+.rem-count { min-width: 28px; padding: 0 .45rem; text-align: center; border: 2px solid var(--line); border-radius: var(--pill); font-size: .85rem; }
+.rem-col--upcoming .rem-count { background: var(--yellow); color: #000; }
+.rem-col--overdue .rem-count { background: var(--st-overtime); color: #000; }
+.rem-col--done .rem-count { background: var(--st-finished); color: #000; }
+.rem-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.rem {
+  display: flex; align-items: flex-start; gap: .7rem;
+  padding: .75rem;
+  background: var(--surface-2);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+}
+.rem.is-overdue { background: color-mix(in srgb, var(--st-overtime) 16%, var(--surface)); }
+.rem.is-done .rem__main strong { text-decoration: line-through; }
+.rem__main { flex: 1; min-width: 0; }
+.rem__main p { margin: .15rem 0 .3rem; color: var(--text-muted); font-size: .92rem; }
+.rem__due { display: inline-flex; align-items: center; gap: .3rem; font-size: .85rem; font-weight: 700; }
+.rem__due svg { width: 15px; height: 15px; }
+.rem__actions { display: flex; flex-direction: column; gap: .4rem; }
+@media (max-width: 1100px) { .rem-columns { grid-template-columns: 1fr; } }

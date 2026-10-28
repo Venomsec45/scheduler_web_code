@@ -112,8 +112,7 @@
   align-content: center;
 }
 .mock--form .mock__input { padding: .7rem .9rem; border: 2px solid var(--ink); border-radius: 10px; background: var(--sand); color: var(--muted); }
-.mock__otp { display: flex; gap: .4rem; }
-.mock__otp i { flex: 1; text-align: center; font-style: normal; font-weight: 900; padding: .6rem 0; background: var(--yellow); border: 2px solid var(--ink); border-radius: 8px; }
+.mock__btn { justify-self: start; padding: .55rem 1.4rem; background: var(--orange); border: 2px solid var(--ink); border-radius: 999px; box-shadow: 3px 3px 0 var(--ink); font-weight: 900; }
 .mock--list span { display: flex; justify-content: space-between; gap: .5rem; padding: .7rem .9rem; background: var(--c); border: 2px solid var(--ink); border-radius: 10px; font-weight: 800; }
 .mock--list small { font-weight: 600; }
 .mock--conflict span { padding: .7rem .9rem; border: 2px solid var(--ink); border-radius: 10px; font-weight: 700; background: var(--sky); }

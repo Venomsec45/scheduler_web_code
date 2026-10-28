@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Settings | Scheduler</title>
+  <link rel="icon" href="/user_webpages/images/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <script>
+    /* Apply the saved theme before the page paints (avoids a flash) */
+    try {
+      var c = JSON.parse(localStorage.getItem("scheduler-theme-cache") || "null");
+      if (c) { var r = document.documentElement; r.dataset.theme = c.theme; r.dataset.cb = c.cb; r.dataset.contrast = c.contrast; r.style.setProperty("--font-scale", c.scale / 100); }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/user_webpages/css/app.css">
+  <link rel="stylesheet" href="/user_webpages/css/settings.css">
+</head>
+<body data-page="settings">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app" id="app">
+    <header id="topbar"></header>
+    <aside id="sidebar"></aside>
+    <div class="scrim" aria-hidden="true"></div>
+    <main class="main" id="main" tabindex="-1">
+      <div class="page-head">
+        <div>
+          <h1>Settings</h1>
+          <p>Manage your profile, how Scheduler looks and how it contacts you.</p>
+        </div>
+      </div>
+      <div class="settings">
+        <nav class="settings__nav card" aria-label="Settings sections">
+          <ul role="tablist" aria-orientation="vertical">
+            <li><a role="tab" href="#profile" data-tab="profile">Profile</a></li>
+            <li><a role="tab" href="#customization" data-tab="customization">Customization</a></li>
+            <li><a role="tab" href="#security" data-tab="security">Security</a></li>
+            <li><a role="tab" href="#notifications" data-tab="notifications">Notifications</a></li>
+            <li><a role="tab" href="#privacy" data-tab="privacy">Privacy</a></li>
+            <li><a role="tab" href="#help" data-tab="help">Help center</a></li>
+          </ul>
+          <button type="button" class="btn btn--danger btn--block" id="settings-logout">Log out</button>
+        </nav>
+        <div class="settings__panels" id="settings-panels"></div>
+      </div>
+    </main>
+  </div>
+  <div class="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="/user_webpages/javascript/store.js"></script>
+  <script src="/user_webpages/javascript/app.js"></script>
+  <script src="/user_webpages/javascript/settings.js"></script>
+</body>
+</html>

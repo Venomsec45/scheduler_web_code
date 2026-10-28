@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 94" role="img" aria-label="Scheduler">
+  <g class="mark">
+    <path d="M25 19 H71 Q83 19 83 31 V69 L63 89 H25 Q13 89 13 77 V31 Q13 19 25 19 Z" fill="#000"/>
+    <path d="M20 14 H66 Q78 14 78 26 V64 L58 84 H20 Q8 84 8 72 V26 Q8 14 20 14 Z" fill="#FFDE59" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M20 14 H66 Q78 14 78 26 V34 H8 V26 Q8 14 20 14 Z" fill="#FF8159" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+    <rect x="22" y="5" width="9" height="18" rx="4.5" fill="#FFFFFF" stroke="#000" stroke-width="3.5"/>
+    <rect x="55" y="5" width="9" height="18" rx="4.5" fill="#FFFFFF" stroke="#000" stroke-width="3.5"/>
+    <rect x="17" y="42" width="12" height="10" rx="3" fill="#000"/>
+    <rect x="37" y="42" width="12" height="10" rx="3" fill="#000"/>
+    <rect x="57" y="42" width="12" height="10" rx="3" fill="#000"/>
+    <rect x="17" y="60" width="12" height="10" rx="3" fill="#000"/>
+    <rect x="36" y="59" width="14" height="12" rx="3" fill="#FF5959" stroke="#000" stroke-width="3"/>
+    <path d="M78 64 L58 84 V72 Q58 64 66 64 Z" fill="#FFAE59" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+</svg>

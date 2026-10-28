@@ -81,3 +81,10 @@
 .auth__sticker-day { font-weight: 900; font-size: 1.2rem; }
 .auth__sticker-item { padding: .5rem .8rem; background: var(--c); border: 2px solid var(--ink); border-radius: 10px; font-weight: 700; }
 @media (max-width: 860px) { .auth__sticker { display: none; } }
+
+/* ---------- Two-step code + password reset panels ---------- */
+.auth-card > p { line-height: 1.5; }
+.code-input { font-size: 1.6rem; font-weight: 900; letter-spacing: .5em; text-align: center; }
+.auth__link-btn { background: none; border: 0; padding: 0; font-weight: 800; color: var(--blue); text-decoration: underline; cursor: pointer; }
+.auth__link-btn[disabled] { color: var(--muted); text-decoration: none; cursor: default; }
+.notice-dev { padding: .7rem .9rem; background: var(--yellow); border: 2px dashed var(--ink); border-radius: 10px; font-size: .92rem; font-weight: 600; }

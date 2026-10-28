@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Notifications | Scheduler</title>
+  <link rel="icon" href="/user_webpages/images/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <script>
+    /* Apply the saved theme before the page paints (avoids a flash) */
+    try {
+      var c = JSON.parse(localStorage.getItem("scheduler-theme-cache") || "null");
+      if (c) { var r = document.documentElement; r.dataset.theme = c.theme; r.dataset.cb = c.cb; r.dataset.contrast = c.contrast; r.style.setProperty("--font-scale", c.scale / 100); }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/user_webpages/css/app.css">
+  <link rel="stylesheet" href="/user_webpages/css/notifications.css">
+</head>
+<body data-page="notifications">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app" id="app">
+    <header id="topbar"></header>
+    <aside id="sidebar"></aside>
+    <div class="scrim" aria-hidden="true"></div>
+    <main class="main" id="main" tabindex="-1">
+      <div class="page-head">
+        <div>
+          <h1>Notifications</h1>
+          <p>Deadline warnings, finished tasks, reminders and suggestions. Emails follow your notification settings.</p>
+        </div>
+        <div class="page-head__actions">
+          <button type="button" class="btn" id="mark-read">Mark all as read</button>
+          <button type="button" class="btn btn--danger" id="clear-all">Clear all</button>
+        </div>
+      </div>
+      <div class="notif-tools">
+        <div class="seg" role="group" aria-label="Filter notifications" id="notif-filter">
+          <button type="button" data-kind="all" aria-pressed="true">All</button>
+          <button type="button" data-kind="unread" aria-pressed="false">Unread</button>
+          <button type="button" data-kind="near" aria-pressed="false">Due soon</button>
+          <button type="button" data-kind="overdue" aria-pressed="false">Overdue</button>
+          <button type="button" data-kind="early" aria-pressed="false">Finished early</button>
+          <button type="button" data-kind="reminder" aria-pressed="false">Reminders</button>
+          <button type="button" data-kind="recommendation" aria-pressed="false">Suggestions</button>
+        </div>
+        <a class="btn btn--sm btn--ghost" id="notif-settings" href="#">Notification settings</a>
+      </div>
+      <ul class="notif-list" id="notif-list" aria-live="polite"></ul>
+    </main>
+  </div>
+  <div class="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="/user_webpages/javascript/store.js"></script>
+  <script src="/user_webpages/javascript/app.js"></script>
+  <script src="/user_webpages/javascript/notifications.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dashboard | Scheduler</title>
+  <link rel="icon" href="/user_webpages/images/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <script>
+    /* Apply the saved theme before the page paints (avoids a flash) */
+    try {
+      var c = JSON.parse(localStorage.getItem("scheduler-theme-cache") || "null");
+      if (c) { var r = document.documentElement; r.dataset.theme = c.theme; r.dataset.cb = c.cb; r.dataset.contrast = c.contrast; r.style.setProperty("--font-scale", c.scale / 100); }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/user_webpages/css/app.css">
+  <link rel="stylesheet" href="/user_webpages/css/dashboard.css">
+</head>
+<body data-page="dashboard">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app" id="app">
+    <header id="topbar"></header>
+    <aside id="sidebar"></aside>
+    <div class="scrim" aria-hidden="true"></div>
+    <main class="main" id="main" tabindex="-1">
+      <div class="page-head dash-head">
+        <div>
+          <p class="dash-head__date" id="greet-date"></p>
+          <h1 id="greeting">Welcome</h1>
+          <p id="greet-sub">Here is how your schedule is shaping up.</p>
+        </div>
+        <div class="dash-head__actions">
+          <button type="button" class="btn" data-create="reminder">New reminder</button>
+          <button type="button" class="btn btn--yellow" data-create="schedule">New schedule</button>
+        </div>
+      </div>
+
+      <section class="tiles" id="tiles" aria-label="Summary"></section>
+
+      <section class="recs" id="recs" aria-label="Recommendations" hidden></section>
+
+      <section class="card insights" aria-labelledby="insights-title">
+        <div class="card__head insights__head">
+          <div>
+            <h2 id="insights-title">Insights</h2>
+            <p class="card__sub">Click any part of a chart to see the tasks behind it.</p>
+          </div>
+          <div class="insights__tools">
+            <button type="button" class="icon-btn" id="charts-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Choose which charts to show">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="19" cy="12" r="2.2"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="period">
+          <div class="period__group" role="group" aria-label="Week">
+            <button type="button" class="icon-btn icon-btn--sm" data-week="-1" aria-label="Previous week">&lsaquo;</button>
+            <span class="period__label" id="week-label" aria-live="polite"></span>
+            <button type="button" class="icon-btn icon-btn--sm" data-week="1" aria-label="Next week">&rsaquo;</button>
+          </div>
+          <div class="period__group" role="group" aria-label="Month">
+            <button type="button" class="icon-btn icon-btn--sm" data-month="-1" aria-label="Previous month">&lsaquo;</button>
+            <span class="period__label" id="month-label" aria-live="polite"></span>
+            <button type="button" class="icon-btn icon-btn--sm" data-month="1" aria-label="Next month">&rsaquo;</button>
+          </div>
+          <button type="button" class="btn btn--sm btn--ghost" id="period-today">This week</button>
+        </div>
+
+        <div class="charts" id="charts">
+          <article class="chart-card" data-chart="status">
+            <div class="chart-card__head">
+              <h3>Tasks by status</h3>
+              <label class="visually-hidden" for="status-range">Status chart range</label>
+              <select class="select select--sm" id="status-range">
+                <option value="week">Selected week</option>
+                <option value="month">Selected month</option>
+                <option value="all">All time</option>
+              </select>
+            </div>
+            <div class="chart-card__body" id="chart-status"></div>
+          </article>
+          <article class="chart-card" data-chart="days">
+            <div class="chart-card__head"><h3>Busiest days of the week</h3><span class="chart-card__note">by booked hours</span></div>
+            <div class="chart-card__body" id="chart-days"></div>
+          </article>
+          <article class="chart-card" data-chart="weeks">
+            <div class="chart-card__head"><h3>Busiest weeks of the month</h3><span class="chart-card__note">by booked hours</span></div>
+            <div class="chart-card__body" id="chart-weeks"></div>
+          </article>
+          <article class="chart-card" data-chart="hours">
+            <div class="chart-card__head">
+              <h3>Busiest hours</h3>
+              <label class="visually-hidden" for="hours-day">Day to inspect</label>
+              <select class="select select--sm" id="hours-day"></select>
+            </div>
+            <div class="chart-card__body" id="chart-hours"></div>
+          </article>
+        </div>
+        <p class="charts-empty empty" id="charts-none" hidden><strong>All charts are hidden.</strong>Use the three dots in the top right to choose which charts to show.</p>
+
+        <section class="drill" id="drill" aria-live="polite" hidden></section>
+      </section>
+
+      <div class="dash-bottom">
+        <section class="card" aria-labelledby="top-days-title">
+          <div class="card__head"><div><h2 id="top-days-title">Top days with the most tasks</h2><p class="card__sub" id="top-days-sub"></p></div></div>
+          <ol class="rank" id="top-days"></ol>
+        </section>
+        <section class="card" aria-labelledby="top-weeks-title">
+          <div class="card__head"><div><h2 id="top-weeks-title">Top weeks with the most tasks</h2><p class="card__sub" id="top-weeks-sub"></p></div></div>
+          <ol class="rank" id="top-weeks"></ol>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div class="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="/user_webpages/javascript/store.js"></script>
+  <script src="/user_webpages/javascript/charts.js"></script>
+  <script src="/user_webpages/javascript/app.js"></script>
+  <script src="/user_webpages/javascript/dashboard.js"></script>
+</body>
+</html>

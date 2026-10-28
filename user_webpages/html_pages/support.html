@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Help & support | Scheduler</title>
+  <link rel="icon" href="/user_webpages/images/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <script>
+    /* Apply the saved theme before the page paints (avoids a flash) */
+    try {
+      var c = JSON.parse(localStorage.getItem("scheduler-theme-cache") || "null");
+      if (c) { var r = document.documentElement; r.dataset.theme = c.theme; r.dataset.cb = c.cb; r.dataset.contrast = c.contrast; r.style.setProperty("--font-scale", c.scale / 100); }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/user_webpages/css/app.css">
+  <link rel="stylesheet" href="/user_webpages/css/support.css">
+</head>
+<body data-page="support">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app" id="app">
+    <header id="topbar"></header>
+    <aside id="sidebar"></aside>
+    <div class="scrim" aria-hidden="true"></div>
+    <main class="main" id="main" tabindex="-1">
+      <div class="page-head">
+        <div>
+          <h1>Help &amp; support</h1>
+          <p>Send our team a message. We reply by email, usually within 24 hours.</p>
+        </div>
+      </div>
+      <div class="support">
+        <form class="card support__form" id="support-form" novalidate>
+          <fieldset class="field ed-fieldset">
+            <legend class="label">This is about</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="topic" value="question" checked><span>A question</span></label>
+              <label class="chip"><input type="radio" name="topic" value="problem"><span>A problem</span></label>
+              <label class="chip"><input type="radio" name="topic" value="feedback"><span>Feedback</span></label>
+            </div>
+          </fieldset>
+          <div class="row">
+            <div class="field"><label class="label" for="sp-name">Name</label><input class="input" id="sp-name" autocomplete="name"><span class="field__error"></span></div>
+            <div class="field"><label class="label" for="sp-email">Email</label><input class="input" id="sp-email" type="email" autocomplete="email"><span class="field__error"></span></div>
+          </div>
+          <div class="field"><label class="label" for="sp-phone">Contact number</label><input class="input" id="sp-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+63 912 345 6789"><span class="field__error"></span></div>
+          <div class="field"><label class="label" for="sp-message">Message</label><textarea class="textarea" id="sp-message" maxlength="1000" placeholder="Tell us what you need help with."></textarea><span class="field__error"></span></div>
+          <button type="submit" class="btn btn--orange">Send message</button>
+        </form>
+        <aside class="support__side">
+          <div class="card support__tile support__tile--yellow"><h2>Email us</h2><p><a href="mailto:support@scheduler.app">support@scheduler.app</a></p></div>
+          <div class="card support__tile support__tile--sky"><h2>Office hours</h2><p>Monday to Friday, 9:00 AM to 6:00 PM</p></div>
+          <div class="card support__tile support__tile--mint"><h2>Accessibility help</h2><p>Need captions, larger text or color-blind friendly colors? Turn them on in <a id="a11y-link" href="#">Settings › Customization</a>.</p></div>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <div class="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="/user_webpages/javascript/store.js"></script>
+  <script src="/user_webpages/javascript/app.js"></script>
+  <script src="/user_webpages/javascript/support.js"></script>
+</body>
+</html>

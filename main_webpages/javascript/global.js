@@ -6,11 +6,11 @@
   "use strict";
 
   const NAV_LINKS = [
-    { href: "http://127.0.0.1:8000/about", label: "About us" },
-    { href: "http://127.0.0.1:8000/how it works", label: "How it works" },
-    { href: "http://127.0.0.1:8000/support/v1", label: "Support" },
-    { href: "http://127.0.0.1:8000/faq", label: "FAQ" },
-    { href: "http://127.0.0.1:8000/blog", label: "Blog" }
+    { href: "/about", label: "About us" },
+    { href: "/how%20it%20works", label: "How it works" },
+    { href: "/support/v1", label: "Support" },
+    { href: "/faq", label: "FAQ" },
+    { href: "/blog", label: "Blog" }
   ];
 
   const SOCIAL = {
@@ -18,7 +18,7 @@
     instagram: "https://instagram.com/" // TODO: replace with your Instagram account URL
   };
 
-  const currentPage = location.pathname.split("/").pop() || "index.html";
+  const currentPage = decodeURIComponent(location.pathname);
 
   /* ---------- Navigation ---------- */
   function buildNav() {
@@ -26,7 +26,7 @@
     if (!header) return null;
 
     const links = NAV_LINKS.map(function (l) {
-      const current = l.href === currentPage ? ' aria-current="page"' : "";
+      const current = decodeURIComponent(l.href) === currentPage ? ' aria-current="page"' : "";
       return '<li><a href="' + l.href + '"' + current + ">" + l.label + "</a></li>";
     }).join("");
 
@@ -34,16 +34,17 @@
     header.innerHTML =
       '<div class="container">' +
         '<div class="nav__bar">' +
-          '<a class="nav__logo" href="http://127.0.0.1:8000/home" aria-label="Scheduler home">' +
-            '<img src="/main_webpages/images/logo.png" alt="Scheduler" width="847" height="317">' +
+          '<a class="nav__logo" href="/home" aria-label="Scheduler home">' +
+            '<img class="nav__logo-white" src="/main_webpages/images/logo-white.svg" alt="Scheduler" width="380" height="96">' +
+            '<img class="nav__logo-color" src="/main_webpages/images/logo.svg" alt="" width="380" height="96">' +
           "</a>" +
           '<div class="nav__menu" id="nav-menu">' +
             '<div class="nav__menu-inner">' +
               '<nav class="nav__panel" aria-label="Main">' +
                 '<ul class="nav__links">' + links + "</ul>" +
                 '<div class="nav__auth">' +
-                  '<a class="btn btn--ghost" href="http://127.0.0.1:8000/log in">Log in</a>' +
-                  '<a class="btn btn--yellow" href="http://127.0.0.1:8000/sign up">Sign up</a>' +
+                  '<a class="btn btn--ghost" href="/log%20in">Log in</a>' +
+                  '<a class="btn btn--yellow" href="/sign%20up">Sign up</a>' +
                 "</div>" +
               "</nav>" +
             "</div>" +
@@ -112,18 +113,18 @@
       '<div class="container">' +
         '<div class="footer__top">' +
           '<div class="footer__brand">' +
-            '<a href="http://127.0.0.1:8000/home"><img src="main_webpages/images/logo.png" alt="Scheduler" width="847" height="317"></a>' +
+            '<a href="/home"><img src="/main_webpages/images/logo.svg" alt="Scheduler" width="380" height="96"></a>' +
             "<small>&copy; " + year + " Scheduler. All rights reserved.</small>" +
           "</div>" +
           '<div class="footer__cols">' +
             "<div><h4>Product</h4><ul>" +
-              '<li><a href="http://127.0.0.1:8000/how it works">How it works</a></li>' +
-              '<li><a href="http://127.0.0.1:8000/blog">Blog</a></li>' +
-              '<li><a href="http://127.0.0.1:8000/sign up">Create an account</a></li>' +
+              '<li><a href="/how%20it%20works">How it works</a></li>' +
+              '<li><a href="/blog">Blog</a></li>' +
+              '<li><a href="/sign%20up">Create an account</a></li>' +
             "</ul></div>" +
             "<div><h4>Help</h4><ul>" +
-              '<li><a href="http://127.0.0.1:8000/support">Contact support</a></li>' +
-              '<li><a href="http://127.0.0.1:8000/faq">FAQ</a></li>' +
+              '<li><a href="/support/v1">Contact support</a></li>' +
+              '<li><a href="/faq">FAQ</a></li>' +
               '<li><a href="mailto:hello@scheduler.app">hello@scheduler.app</a></li>' +
             "</ul></div>" +
           "</div>" +

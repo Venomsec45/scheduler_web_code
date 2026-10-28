@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tasks | Scheduler</title>
+  <link rel="icon" href="/user_webpages/images/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+  <script>
+    /* Apply the saved theme before the page paints (avoids a flash) */
+    try {
+      var c = JSON.parse(localStorage.getItem("scheduler-theme-cache") || "null");
+      if (c) { var r = document.documentElement; r.dataset.theme = c.theme; r.dataset.cb = c.cb; r.dataset.contrast = c.contrast; r.style.setProperty("--font-scale", c.scale / 100); }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/user_webpages/css/app.css">
+  <link rel="stylesheet" href="/user_webpages/css/tasks.css">
+</head>
+<body data-page="tasks">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app" id="app">
+    <header id="topbar"></header>
+    <aside id="sidebar"></aside>
+    <div class="scrim" aria-hidden="true"></div>
+    <main class="main" id="main" tabindex="-1">
+      <div class="page-head">
+        <div>
+          <h1>Tasks</h1>
+          <p>Every task from your schedules in one place.</p>
+        </div>
+        <button type="button" class="btn btn--yellow" data-create="schedule">New schedule</button>
+      </div>
+
+      <div class="task-tools card">
+        <div class="seg" role="group" aria-label="Filter by status" id="status-filter">
+          <button type="button" data-status="all" aria-pressed="true">All <span class="count"></span></button>
+          <button type="button" data-status="pending" aria-pressed="false">Pending <span class="count"></span></button>
+          <button type="button" data-status="overtime" aria-pressed="false">Overtime <span class="count"></span></button>
+          <button type="button" data-status="finished" aria-pressed="false">Finished <span class="count"></span></button>
+          <button type="button" data-status="cancelled" aria-pressed="false">Cancelled <span class="count"></span></button>
+        </div>
+        <div class="task-tools__right">
+          <label class="visually-hidden" for="task-search">Filter tasks</label>
+          <input class="input" id="task-search" type="search" placeholder="Filter tasks">
+          <label class="visually-hidden" for="task-sort">Sort</label>
+          <select class="select" id="task-sort">
+            <option value="date">Sort by date</option>
+            <option value="urgency">Sort by urgency</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="task-list" class="task-groups" aria-live="polite"></div>
+    </main>
+  </div>
+  <div class="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="/user_webpages/javascript/store.js"></script>
+  <script src="/user_webpages/javascript/app.js"></script>
+  <script src="/user_webpages/javascript/tasks.js"></script>
+</body>
+</html>

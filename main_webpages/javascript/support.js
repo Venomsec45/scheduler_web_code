@@ -33,7 +33,7 @@
     if (e.target.classList.contains("is-invalid")) validate();
   });
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
     if (!validate()) {
       const firstBad = form.querySelector(".is-invalid");
@@ -41,17 +41,38 @@
       S.toast("Check the highlighted fields.", "error");
       return;
     }
-    // TODO: connect to your backend or email service here.
     const name = nameInput.value.trim().split(" ")[0];
     const email = emailInput.value.trim();
     const topic = form.querySelector("input[name=topic]:checked").value;
+
+    /* Save the message through POST /support/v1 (stored in the `support` table) */
+    const submitBtn = form.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    try {
+      const res = await fetch("/support/v1", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          topic: topic,
+          name: nameInput.value.trim(),
+          email: email,
+          contact_number: phoneInput.value.trim(),
+          message: message.value.trim()
+        })
+      });
+      if (!res.ok) throw new Error("Server error " + res.status);
+    } catch (err) {
+      submitBtn.disabled = false;
+      S.toast("Your message could not be sent. Please try again.", "error");
+      return;
+    }
     form.classList.add("is-sent");
     form.innerHTML =
       '<div class="sent">' +
         '<div class="sent__icon" aria-hidden="true">✓</div>' +
         "<h2>Message sent</h2>" +
         "<p>Thanks, " + escapeHtml(name) + ". We received your " + topic + " and will reply to <strong>" + escapeHtml(email) + "</strong> within 24 hours.</p>" +
-        '<a class="btn btn--yellow" href="http://127.0.0.1:8000/support/v1">Send another message</a>' +
+        '<a class="btn btn--yellow" href="/support/v1">Send another message</a>' +
       "</div>";
     S.toast("Message sent.", "success");
   });
